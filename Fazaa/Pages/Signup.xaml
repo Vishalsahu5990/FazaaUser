@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:local="clr-namespace:Fazaa;assembly=Fazaa"
+		x:Class="Fazaa.Signup"
+		xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+        xmlns:xLabsControl="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+		BackgroundImage="login_bg">
+
+	<RelativeLayout 
+            Padding="0"
+            Margin="0"
+            x:Name="_MainLayout"
+            RelativeLayout.WidthConstraint="{ConstraintExpression , Property=Width,Type=RelativeToParent}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression , Property=Height,Type=RelativeToParent}">
+
+        <Image Source="login_bg"
+                x:Name="imgBG"
+			Aspect="AspectFill" 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Property=Width, Constant=0}"
+              RelativeLayout.WidthConstraint="{ConstraintExpression , Property=Width,Type=RelativeToParent}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression , Property=Height,Type=RelativeToParent}"/>
+
+		 <Grid RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+		
+          
+	<ScrollView 
+			IsClippedToBounds="true"
+			>
+	<StackLayout 
+			Orientation="Vertical"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Margin="0,10,0,0"
+			Spacing="20"
+			Padding="40,35,40,40">
+		<Image Source="logo"/>
+		<StackLayout 
+			Orientation="Vertical"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Spacing="20"
+			Margin="0,20,0,0">
+		        <Label 
+					Text="Sign up by user type"
+					HorizontalOptions="Center"
+					FontSize="25"
+					TextColor="White"
+					FontAttributes="Bold"/>
+						
+						<Frame Margin="0,20,0,0" Padding="5,0,5,0" 
+							HasShadow="false"
+							OutlineColor="Transparent">
+							<StackLayout 
+			Orientation="Horizontal"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Spacing="0"
+			>
+					<local:MyEntry 
+					x:Name="txtFirstname"
+					Placeholder="First Name"
+					HorizontalOptions="FillAndExpand"
+					HeightRequest="40"
+					FontSize="14"
+					/>		
+								</StackLayout>
+						</Frame>
+						
+				
+						<Frame Margin="0,0,0,0" Padding="5,0,5,0" 
+							HasShadow="false"
+							OutlineColor="Transparent">
+							<StackLayout 
+			Orientation="Horizontal"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Spacing="0"
+			><local:MyEntry
+					x:Name="txtLastname"
+					Placeholder="Last Name"
+					HorizontalOptions="FillAndExpand"
+					HeightRequest="40"
+					FontSize="14"/>
+							
+								</StackLayout>
+						</Frame>
+
+						
+						<Frame Margin="0,0,0,0" Padding="5,0,5,0" 
+							HasShadow="false"
+							OutlineColor="Transparent"
+							x:Name="stDob">
+							<StackLayout 
+			Orientation="Horizontal"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Spacing="0"
+			>
+							<StackLayout
+						BackgroundColor="White"
+						HeightRequest="40"
+						VerticalOptions="Center"
+						Orientation="Horizontal"
+
+						>
+				<Label 
+					x:Name="lblDob"
+					Text="DOB"
+				    FontSize="14"
+						VerticalTextAlignment="Center"
+						VerticalOptions="Center"
+						Margin="5,0,0,0"
+									TextColor="#BABBBA"/>
+					</StackLayout>
+				<DatePicker 
+						x:Name="datepicker"
+					IsVisible="false"
+					/>
+								</StackLayout>
+						</Frame>
+
+						
+						<Frame Margin="0,0,0,0" Padding="5,0,5,0" 
+							HasShadow="false"
+							OutlineColor="Transparent"
+							x:Name="stCity">
+							<StackLayout 
+			Orientation="Horizontal"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Spacing="0"
+			>
+					<StackLayout
+						BackgroundColor="White"
+						HeightRequest="40"
+						VerticalOptions="Center"
+						Orientation="Horizontal"
+
+						> 
+				<Label 
+					x:Name="lblCity"
+					Text="City/Area"
+				    FontSize="14"
+						VerticalTextAlignment="Center"
+						VerticalOptions="Center"
+						Margin="5,0,0,0"
+									TextColor="#BABBBA"/>
+					</StackLayout>		
+								</StackLayout>
+						</Frame>
+
+						
+						<Frame Margin="0,0,0,0" Padding="5,0,5,0" 
+							HasShadow="false"
+							OutlineColor="Transparent">
+							<StackLayout 
+			Orientation="Horizontal"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Spacing="0"
+			>
+							<local:MyEntry 
+					x:Name="txtPhone"
+					Placeholder="Phone Number"
+					HorizontalOptions="FillAndExpand"
+					HeightRequest="40"
+					FontSize="14"
+								Keyboard="Telephone"
+								/>
+								</StackLayout>
+						</Frame>
+				
+
+
+						<Frame Margin="0,0,0,0" Padding="5,0,5,0" 
+							HasShadow="false"
+							OutlineColor="Transparent">
+							<StackLayout 
+			Orientation="Horizontal"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Spacing="0"
+			><local:MyEntry 
+					x:Name="txtEmail"
+					Placeholder="Email"
+					HorizontalOptions="FillAndExpand"
+					HeightRequest="40"
+					FontSize="14"
+								Keyboard="Email"/>
+							
+								</StackLayout>
+						</Frame>
+
+				<Picker x:Name="CityPicker"
+					Title="Find me some" 
+					IsVisible="false"></Picker>
+				<Frame Margin="0,0,0,0" Padding="5,0,5,0" 
+							HasShadow="false"
+							OutlineColor="Transparent">
+							<StackLayout 
+			Orientation="Horizontal"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Spacing="0"
+			><local:MyEntry 
+					x:Name="txtPassword"
+					Placeholder="Password"
+					HorizontalOptions="FillAndExpand"
+					HeightRequest="40"
+					FontSize="14"
+					IsPassword="true"/> 
+							
+								</StackLayout>   
+						</Frame>
+
+
+				<local:CustomButton
+			Text="SIGN UP"
+			TextColor="White"
+		    x:Name="btnSignup"
+			BackgroundColor="#336FB7" 
+			HorizontalOptions="Center"
+			VerticalOptions="Center"
+			WidthRequest="170"
+			BorderColor="White"
+			BorderRadius="20"
+			BorderWidth="1"
+			HeightRequest="40"		/>
+				</StackLayout>
+		
+	</StackLayout>
+		</ScrollView>
+			<StackLayout Orientation="Horizontal" HeightRequest="70" VerticalOptions="Start"> 
+		<StackLayout Padding="20,20,30,20" >
+		<Image Source="back"/>
+				<StackLayout.GestureRecognizers>
+        <TapGestureRecognizer Tapped="back_Tapped"/>  
+    </StackLayout.GestureRecognizers>  
+				</StackLayout>
+
+			</StackLayout>
+			</Grid>
+	</RelativeLayout>
+	
+	</ContentPage>
+

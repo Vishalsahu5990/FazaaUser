@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+ xmlns:local="clr-namespace:Fazaa;assembly=Fazaa"
+	x:Class="Fazaa.AddToCartPopup">
+	<StackLayout
+			Orientation="Vertical" 
+			VerticalOptions="CenterAndExpand"
+		HorizontalOptions="FillAndExpand"
+			HeightRequest="180"
+			BackgroundColor="Silver"
+			Margin="30"
+		Spacing="10">
+		
+			<local:MyEntry 
+			HorizontalOptions="FillAndExpand"
+			HeightRequest="40"
+		Margin="20,0,20,0"
+		VerticalOptions="CenterAndExpand"
+		Keyboard="Numeric"
+		Placeholder="Enter Quantity" 
+		x:Name="txtQuantity"/>
+		<Label Margin="20,0,0,0" x:Name="lblErrorMsg" TextColor="Red" FontSize="Small" IsVisible="false"/>
+		<StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"
+			Padding="10" Spacing="20">
+			<local:CustomButton 
+			BackgroundColor="#6FAD57"
+			HorizontalOptions="FillAndExpand"
+			Text="Cancel"
+			TextColor="White"
+			BorderRadius="0"
+			x:Name="btnCancel"/>
+			<local:CustomButton 
+			BackgroundColor="#6FAD57" 
+			HorizontalOptions="FillAndExpand"   
+			Text=" Save "
+			TextColor="White"
+			BorderRadius="0" 
+			x:Name="btnSave"/>
+		</StackLayout>
+	</StackLayout>
+</pages:PopupPage>

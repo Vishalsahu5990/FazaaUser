@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Fazaa.AboutUsPage">
+  <StackLayout
+            Orientation="Vertical"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+    
+    <StackLayout x:Name="_slTitleBar"
+            Padding="0" Orientation="Horizontal" 
+            HeightRequest="65" BackgroundColor="#326FB7"> 
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Image 
+                    x:Name="imgMenu" 
+                Source="navigation" 
+                VerticalOptions="CenterAndExpand"
+                Margin="30" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="menu_Tapped" /> 
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <Label Text="About Us" HorizontalOptions="CenterAndExpand" 
+            VerticalOptions="CenterAndExpand" FontAttributes="Bold"
+            FontSize="20"
+            TextColor="White"
+            x:Name="lblTitle"
+            Margin="0,10,0,0"/> 
+            
+            <StackLayout VerticalOptions="FillAndExpand"  
+                WidthRequest="80">
+            <RelativeLayout 
+                    >
+            <Image Source="right_logo" 
+                    Aspect="AspectFill"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.4}"
+                IsVisible="false">
+               
+            </Image>
+            </RelativeLayout>
+            </StackLayout>
+                
+            
+        </StackLayout>
+    <ScrollView>
+    <StackLayout 
+                Padding="16"
+                Orientation="Vertical"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Start">
+    <Label Text="Mission statement:"
+        FontSize="Large"/>
+        <Label
+        Text="Our mission is transforming goods around cities in the MENA region to have anything delivered to you in under an hour. We offer a service for those who need help or don’t have that extra time for collecting their shopping needs and wants. We are offering a platform for the individuals that want to make extra money to deliver goods to the customers. We empower communities to shop locally without mobilizing around to get your needs, and we empower our partners the businesses through our API to offer on-demand delivery without dealing with the logistics of it."
+        FontSize="Small"
+        TextColor="Gray"/>
+
+        <Label Text="About Us:"
+        FontSize="Large"
+        Margin="0,15,0,0"/>
+         <Label
+        Text=" We are here for you…"
+        FontSize="Small"
+        TextColor="Gray"/>
+            
+        <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+             <Image 
+        Source="f_name"
+        HorizontalOptions="Start"
+                    VerticalOptions="Start"
+        Margin="6,8,0,0"/>
+             <Label
+        Text="is a start-up that is transforming the way consumer access local goods, enabling anyone to get nearly any product delivered in no time. All accessed by our application “Fazaa”. We believe in today’s world we all need to help each other out. With cities blooming and traffic increasing, people are finding it hard to find time to do the daily requirements for their household. We are here to help you and the whole community, getting the shopping experience at your job office or tucked in your bed, wherever you may be, just closer to you!"
+        FontSize="Small"
+        TextColor="Gray"/>
+        </StackLayout>
+
+
+             <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+             <Image 
+        Source="f_name"
+        HorizontalOptions="Start"
+                    VerticalOptions="Start"
+        Margin="6,8,0,0"/>
+             <Label
+        Text=" is like your friend who is always there for you, your new personal courier available to everyone. Fazaa runs your errands immediately and on demand!
+Pick and relax! Cause we got you.
+Yours sincerely,"
+        FontSize="Small"
+        TextColor="Gray"/>
+        </StackLayout>
+
+             <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+             <Image 
+        Source="f_name"
+        HorizontalOptions="Start"
+                    VerticalOptions="Start"
+        Margin="6,8,0,0"/>
+             <Label
+        Text=" Team"
+        FontSize="Small"
+        TextColor="Gray"/>
+        </StackLayout>
+    </StackLayout>
+	</ScrollView>
+        </StackLayout>
+</ContentPage>

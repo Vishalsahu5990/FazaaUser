@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+		x:Class="Fazaa.MyAccountPage"
+        xmlns:local="clr-namespace:Fazaa;assembly=Fazaa"
+    xmlns:control="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
+    BackgroundColor="White">
+    <StackLayout>
+	<StackLayout x:Name="_slTitleBar"
+            Padding="0" Orientation="Horizontal" 
+            HeightRequest="65" BackgroundColor="#326FB7"> 
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Image 
+                    x:Name="imgMenu" 
+                Source="navigation" 
+                VerticalOptions="CenterAndExpand"
+                Margin="30" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="menu_Tapped" /> 
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <Label Text="My account" HorizontalOptions="CenterAndExpand" 
+            VerticalOptions="CenterAndExpand" FontAttributes="Bold"
+            FontSize="20"
+            TextColor="White"
+            x:Name="lblTitle"/> 
+            
+            <StackLayout VerticalOptions="FillAndExpand"  
+                WidthRequest="80"> 
+            <RelativeLayout 
+                    >
+            <Image Source="right_logo" 
+                    Aspect="AspectFill"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.4}"
+                >
+
+            </Image>
+            </RelativeLayout>
+            </StackLayout>
+                
+            
+        </StackLayout>
+
+
+	<StackLayout
+				Orientation="Vertical"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Start"
+				Spacing="10"
+				Margin="15">
+			
+		<Frame
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Start"
+				BackgroundColor="White"
+				OutlineColor="Silver"
+                
+                HasShadow="false">
+			
+			<StackLayout
+				Orientation="Vertical"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Center"
+				Spacing="10">
+
+					
+			<StackLayout
+				Orientation="Horizontal"
+				HorizontalOptions="Start"
+				VerticalOptions="Center"
+				Spacing="10">
+			<controls:CircleImage 
+					Source="user1" 
+					Aspect="AspectFit"
+				    HeightRequest="100"
+				    WidthRequest="100"
+					BorderColor="Gray"
+					BorderThickness="2"
+					VerticalOptions="Center"/>
+				<StackLayout
+				Orientation="Vertical"
+				HorizontalOptions="Start"
+				VerticalOptions="Center"
+				Spacing="5">
+					<Label 
+							x:Name="lblUsername"
+							Text="N/A"
+							TextColor="#336FB7"
+							VerticalTextAlignment="Center"
+						    VerticalOptions="Center"
+							FontAttributes="Bold"
+                                FontSize="Medium"
+						/>
+					<Label 
+							x:Name="lblEmail"
+							Text="N/A"
+							TextColor="Black"
+							VerticalTextAlignment="Center"
+						    VerticalOptions="Center"
+                                 FontSize="Medium"
+						/>
+					<local:CustomButton
+						x:Name="btnVerifyEmail"
+						BackgroundColor="#6FAD57"
+						Text="Veryfy Email"
+						HeightRequest="40"
+						FontSize="Small"
+						TextColor="White"
+						BorderRadius="0"
+                                VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand"
+                            Margin="0,10,0,0"
+                            FontAttributes="Bold"
+                            WidthRequest="130"/>
+
+				</StackLayout>
+					
+            </StackLayout>
+				<StackLayout
+				Orientation="Horizontal"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Center"
+				Spacing="2"
+                        Margin="0,10,0,0">
+                         <Grid HorizontalOptions="FillAndExpand">
+                          <local:CustomButton
+                        TextColor="White"
+                        BackgroundColor="#6FAD57"
+                        Text="Delieveries"
+                        HeightRequest="40"
+                        FontSize="12"
+                        BorderRadius="0"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            HorizontalOptions="FillAndExpand"
+                            FontAttributes="Bold"
+                            x:Name="btnDeleveries"/>
+                        <local:CustomButton
+                        TextColor="White" 
+                        BackgroundColor="#6FAD57"
+                        Text="Edit Profile"
+                        HeightRequest="30"
+                        FontSize="12"
+                        BorderRadius="0"    
+                         Grid.Row="0"
+                            Grid.Column="1"
+                            HorizontalOptions="FillAndExpand"
+                            FontAttributes="Bold"
+                            x:Name="btnEditProfile"/>
+                        <local:CustomButton
+                        TextColor="#6FAD57"
+                        BackgroundColor="White"
+                        Text="Logout"
+                        HeightRequest="30"
+                        FontSize="12"
+                        BorderColor="#6FAD57"
+                        BorderWidth="2" 
+                            BorderRadius="0"
+                         Grid.Row="0"
+                            Grid.Column="2"
+                            HorizontalOptions="FillAndExpand"
+                            FontAttributes="Bold"
+                            x:Name="btnLogout"/>
+                </Grid>
+               
+					</StackLayout>			
+				</StackLayout>
+				</Frame>
+			<StackLayout
+				Orientation="Vertical"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Center"
+                Spacing="15"
+				Padding="10,0,10,0">
+               
+				<local:CustomButton
+						TextColor="White"
+						BackgroundColor="#6FAD57"
+						Text="PROFILE"
+						HeightRequest="40"
+                        BorderRadius="0"
+						FontAttributes="Bold"
+                x:Name="btnProfile"/>
+				<local:CustomButton
+						TextColor="White"
+						BackgroundColor="#6FAD57"
+						Text="MY ORDER"
+						HeightRequest="40"
+                        BorderRadius="0"
+						FontAttributes="Bold"
+                x:Name="btnMyOrder"/>
+				<local:CustomButton
+						TextColor="White"
+						BackgroundColor="#6FAD57"
+						Text="FAVOURITE"
+						HeightRequest="40"
+                        BorderRadius="0"
+						FontAttributes="Bold"
+                x:Name="btnFavourite"/>
+				<local:CustomButton
+						TextColor="White"
+						BackgroundColor="#6FAD57"
+						Text="WISHLIST"
+						HeightRequest="40"
+                        BorderRadius="0"
+                        FontAttributes="Bold"
+                    x:Name="btnWishlist"
+						/>
+			</StackLayout>
+			</StackLayout>
+		<!-- static Footer	-->
+		<RelativeLayout VerticalOptions="EndAndExpand">
+			<StackLayout x:Name="_slFooter" HeightRequest="60" Orientation="Horizontal" BackgroundColor="White" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+				<Grid HorizontalOptions="FillAndExpand" ColumnSpacing="1" RowSpacing="0">
+					<StackLayout Grid.Column="0" BackgroundColor="#7AB064"
+							VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5"
+							x:Name="_slGroceries">
+						<Image 
+						Margin="0,10,0,0"
+						Source="groceries"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Groceries"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+					<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="grocerry_Tapped"/> 
+				</StackLayout.GestureRecognizers>	
+					</StackLayout>
+					<StackLayout  Grid.Column="1" VerticalOptions="FillAndExpand" Padding="0" Margin="0">
+						<StackLayout x:Name="_slCoffee" BackgroundColor="#7AB064" VerticalOptions="FillAndExpand"
+								Padding="0,0,0,5">
+							<Image 
+						Margin="0,10,0,0"
+						Source="coffee"
+					VerticalOptions="CenterAndExpand"/>
+				<Label x:Name="lblCoffee"
+									Text="Coffee"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/></StackLayout>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="coffee_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+					<StackLayout x:Name="_slPharmacy" Grid.Column="2" BackgroundColor="#7AB064"
+						VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5">
+						<Image 
+						Margin="0,10,0,0"
+						Source="pharmacy"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Pharmacies"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="pharmacies_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+						<StackLayout x:Name="_slRestaurants" Grid.Column="3" BackgroundColor="#7AB064"
+						VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5">
+						<Image 
+						Margin="0,10,0,0"
+						Source="restaurants"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Restaurants"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="restaurants_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+						<StackLayout x:Name="_slDeliever" Grid.Column="4" BackgroundColor="#7AB064"
+						VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5">
+						<Image 
+						Margin="0,10,0,0" 
+						Source="deliver"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Deliever"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="deliever_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+				</Grid>
+			</StackLayout>
+		</RelativeLayout>
+            </StackLayout>
+</ContentPage>

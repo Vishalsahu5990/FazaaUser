@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		x:Class="Fazaa.PaymentPage"
+        xmlns:local="clr-namespace:Fazaa;assembly=Fazaa"
+		Title="Payment"
+		BackgroundColor="White"
+		>
+	<StackLayout>
+	 <StackLayout x:Name="_slTitleBar"
+            Padding="0" Orientation="Horizontal" 
+            HeightRequest="65" BackgroundColor="#326FB7"> 
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Image 
+                    x:Name="imgMenu" 
+                Source="navigation" 
+                VerticalOptions="CenterAndExpand"
+                Margin="30" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="menu_Tapped" /> 
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+          
+                <Image Source="fazza_name"
+                HorizontalOptions="CenterAndExpand" 
+            VerticalOptions="CenterAndExpand"/>
+            
+            <StackLayout VerticalOptions="FillAndExpand"  
+                WidthRequest="80"> 
+            <RelativeLayout 
+                    >
+            <Image Source="right_logo" 
+                    Aspect="AspectFill"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.4}"
+                >
+
+            </Image>
+            </RelativeLayout>
+            </StackLayout>
+                
+            
+        </StackLayout>
+	<ScrollView
+		IsClippedToBounds="true">
+	<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Orientation="Vertical"
+			>
+           
+            <StackLayout Padding="10">
+<!--	Payment info start	-->
+		<Label
+			Text="PAYMENT INFO"
+			TextColor="Black"
+			FontSize="Medium"
+			Margin="5,20,0,0"/>
+		<BoxView
+			BackgroundColor="#336FB7"
+			HeightRequest="2"/>
+		<StackLayout
+			Margin="0,10,0,0"
+			Orientation="Horizontal"
+			Spacing="10">
+
+						<Label
+					Margin="5,0,0,0"
+					Text="Personal"
+					FontSize="Medium"
+					x:Name="lblAmount"
+					TextColor="Black"
+					HorizontalOptions="StartAndExpand"
+				VerticalTextAlignment="Center"/>
+						<StackLayout
+			HorizontalOptions="EndAndExpand"
+			VerticalOptions="End"
+			Orientation="Horizontal"
+			Spacing="10"
+			x:Name="slPaymentInfoEditDelete">
+				        <Button
+					HeightRequest="21"
+					WidthRequest="33"
+					BackgroundColor="Transparent"
+					Image="icon"
+                    IsVisible="false"/>
+						<Label 
+					Text="25457"
+					FontSize="11"
+					TextColor="Gray"
+					VerticalTextAlignment="Center"
+                    IsVisible="false"/>
+						<Label 
+					Text="Edit"
+					FontSize="Micro"
+					TextColor="Gray"
+					VerticalTextAlignment="Center">
+                     <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="editPaymentInfo_Tapped" /> 
+                </Label.GestureRecognizers>
+                        </Label>
+						<Label 
+					Text="Delete"
+					FontSize="Micro"
+					TextColor="Gray"
+					VerticalTextAlignment="Center">
+                     <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="deletePaymentInfo_Tapped" /> 
+                </Label.GestureRecognizers>
+                        </Label>
+					</StackLayout>
+						</StackLayout>
+		<StackLayout
+			Margin="0,20,0,0"
+			Orientation="Vertical"
+					HorizontalOptions="Start"
+			Spacing="10">
+                     <StackLayout x:Name="slCardInfo">
+                    <StackLayout Orientation="Horizontal">
+                          <Label Text="Card Type :"
+                    FontSize="Small"
+                    FontAttributes="Bold"/>
+                        <Label Text="N/A"
+                    FontSize="Small"
+                     x:Name="lblCardType"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                          <Label Text="Card Holder Name :"
+                    FontSize="Small"
+                    FontAttributes="Bold"/>
+                        <Label Text="N/A"
+                    FontSize="Small"
+                     x:Name="lblCardHolderName"/>
+                    </StackLayout>
+                      <StackLayout Orientation="Horizontal">
+                          <Label Text="Card Number :"
+                    FontSize="Small"
+                    FontAttributes="Bold"/>
+                        <Label Text="N/A"
+                    FontSize="Small"
+                     x:Name="lblCardNumber"/>
+                    </StackLayout>
+                      <StackLayout Orientation="Horizontal">
+                          <Label Text="Expiration Date :"
+                    FontSize="Small"
+                    FontAttributes="Bold"/>
+                        <Label Text="N/A"
+                    FontSize="Small"
+                     x:Name="lblExpirationDate"/>
+                    </StackLayout>
+                      <StackLayout Orientation="Horizontal">
+                          <Label Text="Security code :"
+                    FontSize="Small"
+                    FontAttributes="Bold"/>
+                        <Label Text="N/A"
+                    FontSize="Small"
+                    x:Name="lblSecurityCode"/>
+                    </StackLayout>
+                   </StackLayout>
+						<local:CustomButton
+					Text="ADD NEW CARD"
+					BackgroundColor="White"
+					TextColor="Black"
+					BorderColor="#7AB064"
+					BorderWidth="1"
+					BorderRadius="0"
+                    WidthRequest="150"
+                    HeightRequest="40"
+                    x:Name="btnAddNewCard"/>
+		
+		</StackLayout>
+		<!--	Payment info end	-->
+
+
+			<!--	Addrss book start	-->
+
+			<Label
+			Text="ADDRESS BOOK"
+			TextColor="Black"
+			FontSize="15"
+			Margin="5,20,0,0"/>
+		<BoxView
+			BackgroundColor="#336FB7"
+			HeightRequest="2"/>
+		<StackLayout
+			Margin="0,10,0,0"
+			Orientation="Horizontal"
+			Spacing="10">
+                <Grid HorizontalOptions="FillAndExpand">
+                   <Label
+                    Margin="5,0,0,0"
+                    Text="N/A"
+                    FontSize="Micro" 
+                    TextColor="Gray"
+                    HorizontalOptions="Start"
+                VerticalTextAlignment="Center"
+                    Grid.Column="0"
+                    HorizontalTextAlignment="Start"
+                        x:Name="lblAddress"/> 
+
+                    <StackLayout
+            HorizontalOptions="EndAndExpand"
+            VerticalOptions="Center"
+            Orientation="Horizontal"
+            Spacing="10"
+           Grid.Column="1" 
+                            x:Name="slAddressEditDelete">
+                      
+                        <Label 
+                    Text="Edit"
+                    FontSize="Micro"
+                    TextColor="Gray"
+                    VerticalTextAlignment="Center">
+                     <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="editAddress_Tapped" /> 
+                </Label.GestureRecognizers>
+                            </Label>
+                        <Label 
+                    Text="Delete"
+                    FontSize="Micro"
+                    TextColor="Gray"
+                    VerticalTextAlignment="Center">
+                     <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="deleteAddressInfo_Tapped" /> 
+                </Label.GestureRecognizers>
+                            </Label>
+                    </StackLayout>
+                </Grid>
+			
+						</StackLayout>
+		<StackLayout
+			Margin="0,20,0,0"
+			Orientation="Vertical"
+					HorizontalOptions="Start"
+			Spacing="10">
+					<local:CustomButton
+					Text="ADD NEW ADDRESS"
+					BackgroundColor="White"
+					TextColor="Black"
+					BorderColor="#7AB064"
+					BorderWidth="1"
+					BorderRadius="0"
+                 WidthRequest="150"
+                HeightRequest="40"
+                    x:Name="btnAddNewAddress"/>
+		</StackLayout>
+			<BoxView
+			BackgroundColor="#336FB7"
+			HeightRequest="2"
+			Margin="0,20,0,0"/> 
+			<!--	Addrss book end	-->
+		<StackLayout
+			Margin="0,10,0,0"
+			Orientation="Horizontal"
+			Spacing="10">
+
+						<Label
+					Margin="5,0,0,0"
+					Text="TELL YOUR FRIENDS ABOUT "
+					FontSize="12"
+					TextColor="Black"
+					HorizontalOptions="StartAndExpand"
+				VerticalTextAlignment="Center"/>
+				<Image
+					Source="f_name"
+					HeightRequest="30"
+					WidthRequest="45"/>
+						<StackLayout
+			HorizontalOptions="EndAndExpand"
+			VerticalOptions="End"
+			Orientation="Horizontal"
+			Spacing="10"
+			>
+				       <local:CustomButton
+					BackgroundColor="#7AB064"
+					Text="INVITE A FRIEND"
+					FontSize="10"
+					TextColor="White"
+					FontAttributes="Bold"
+						Margin="10"
+                    BorderRadius="0"
+                        WidthRequest="100">
+                    <Button.HeightRequest>
+                     <OnPlatform x:TypeArguments="x:Double"
+                      iOS="30"
+                      Android="40" />
+                        </Button.HeightRequest>
+                    </local:CustomButton>
+						</StackLayout>
+						</StackLayout>
+                </StackLayout>
+	</StackLayout>
+		</ScrollView>
+	<!-- static Footer	-->
+		<RelativeLayout VerticalOptions="EndAndExpand">
+			<StackLayout x:Name="_slFooter" HeightRequest="60" Orientation="Horizontal" BackgroundColor="White" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+				<Grid HorizontalOptions="FillAndExpand" ColumnSpacing="1" RowSpacing="0">
+					<StackLayout Grid.Column="0" BackgroundColor="#7AB064"
+							VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5"
+							x:Name="_slGroceries">
+						<Image 
+						Margin="0,10,0,0"
+						Source="groceries"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Groceries"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+					<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="grocerry_Tapped"/> 
+				</StackLayout.GestureRecognizers>	
+					</StackLayout>
+					<StackLayout  Grid.Column="1" VerticalOptions="FillAndExpand" Padding="0" Margin="0">
+						<StackLayout x:Name="_slCoffee" BackgroundColor="#7AB064" VerticalOptions="FillAndExpand"
+								Padding="0,0,0,5">
+							<Image 
+						Margin="0,10,0,0"
+						Source="coffee"
+					VerticalOptions="CenterAndExpand"/>
+				<Label x:Name="lblCoffee"
+									Text="Coffee"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/></StackLayout>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="coffee_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+					<StackLayout x:Name="_slPharmacy" Grid.Column="2" BackgroundColor="#7AB064"
+						VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5">
+						<Image 
+						Margin="0,10,0,0"
+						Source="pharmacy"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Pharmacies"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="pharmacies_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+						<StackLayout x:Name="_slRestaurants" Grid.Column="3" BackgroundColor="#7AB064"
+						VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5">
+						<Image 
+						Margin="0,10,0,0"
+						Source="restaurants"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Restaurants"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="restaurants_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+						<StackLayout x:Name="_slDeliever" Grid.Column="4" BackgroundColor="#7AB064"
+						VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5">
+						<Image 
+						Margin="0,10,0,0" 
+						Source="deliver"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Deliever"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="deliever_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+				</Grid>
+			</StackLayout>
+		</RelativeLayout>
+		</StackLayout>
+</ContentPage>  

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="Fazaa.CheckoutPage"
+		BackgroundColor="White">
+	<StackLayout>
+	<!--Title bar--> 
+<StackLayout
+			x:Name="_slTitleBar"
+			Padding="0,0,0,0" Orientation="Horizontal"  
+			HeightRequest="65" BackgroundColor="#326FB7">
+
+			<Grid HorizontalOptions="FillAndExpand">
+			<StackLayout Grid.Column="0"  VerticalOptions="FillAndExpand" HorizontalOptions="Start">
+				<Image Source="navigation" VerticalOptions="CenterAndExpand" Margin="30" />
+				<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="menu_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+			</StackLayout>
+			<Label Grid.Column="1" Text="Checkout" HorizontalOptions="CenterAndExpand" 
+			VerticalOptions="CenterAndExpand" FontAttributes="Bold"
+			FontSize="20"
+			TextColor="White"
+			x:Name="lblTitle"
+
+				/>  
+				<Label Grid.Column="2" Text="Checkout" HorizontalOptions="CenterAndExpand" 
+			VerticalOptions="CenterAndExpand" FontAttributes="Bold"
+			FontSize="20"
+			TextColor="White"
+			IsVisible="false"
+				/> 
+			</Grid> 
+
+			</StackLayout> 
+	
+	<ScrollView 
+		IsClippedToBounds="true">
+	<StackLayout
+				Orientation="Vertical"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Start"
+				Spacing="20"
+				Margin="0,20,0,0">
+			<StackLayout
+				Orientation="Vertical"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Center"
+				Padding="10,0,10,0">
+				<StackLayout
+				Orientation="Horizontal"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="CenterAndExpand"
+				BackgroundColor="#6FAD57"
+				HeightRequest="40"
+				Spacing="10"
+				x:Name="_slSelectAddress"	>
+					<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="_slSelectAddress_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+				<Image
+						Margin="15,10,10,10"
+						Source="marker"/> 
+					<Label Text="Select your Address"
+					TextColor="White"
+					FontSize="Medium"
+					VerticalTextAlignment="Center"
+						/>
+
+				<Image
+						Margin="10,10,10,10"
+						HorizontalOptions="End"
+						Source="arrow"/>
+				</StackLayout>
+				<StackLayout x:Name="_slAddress">
+
+				<StackLayout Orientation="Horizontal" 
+							 Margin="15,10,0,0"
+							x:Name="_slAddNewAddress">
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="_slAddNewAddress_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+							<Image Source="plus"
+							VerticalOptions="CenterAndExpand"/> 
+							<Label Text="Add new address"
+							FontSize="Small"
+							VerticalOptions="Center"
+							VerticalTextAlignment="Center"
+							LineBreakMode="TailTruncation"/>
+
+						</StackLayout>
+						<StackLayout x:Name="_slEntryView">
+						<Entry
+			HorizontalOptions="FillAndExpand"
+			HeightRequest="60"
+		Margin="20,0,20,0"
+		VerticalOptions="CenterAndExpand"
+		Keyboard="Default"
+		Placeholder="Enter Address" 
+		x:Name="txtAddress"
+							FontSize="14"/>
+							<Button Text="Add"
+							BackgroundColor="#6FAD57"
+							HorizontalOptions="Center"
+							WidthRequest="70"
+							TextColor="White"
+							x:Name="btnAddAddress"/>
+						</StackLayout>
+						
+						<StackLayout Orientation="Horizontal" 
+							 Margin="15,10,0,0"
+							x:Name="_slAddress1">
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="_slAddress1_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+							<Image Source="uncheck"
+							VerticalOptions="CenterAndExpand"
+							x:Name="imgCheck1"/> 
+							<Label Text="address1"
+							FontSize="12"
+							VerticalOptions="Center"
+							VerticalTextAlignment="Center"
+							LineBreakMode="TailTruncation"
+							x:Name="lblAddress1"/>
+							</StackLayout>
+						
+						<StackLayout Orientation="Horizontal"  
+							 Margin="15,10,0,0"
+							x:Name="_slAddress2">
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="_slAddress2_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+							<Image Source="uncheck"
+							VerticalOptions="CenterAndExpand"
+							x:Name="imgCheck2"/>  
+							<Label Text="address1"
+							FontSize="12"
+							VerticalOptions="Center"
+							VerticalTextAlignment="Center"
+							LineBreakMode="TailTruncation"
+							x:Name="lblAddress2"/> 
+							</StackLayout>  
+
+						<StackLayout Orientation="Horizontal" 
+							 Margin="15,10,0,0"
+							x:Name="_slAddress3">
+							<StackLayout.GestureRecognizers> 
+					<TapGestureRecognizer Tapped="_slAddress3_Tapped"/> 
+				</StackLayout.GestureRecognizers>
+							<Image Source="uncheck"
+							VerticalOptions="CenterAndExpand"
+							x:Name="imgCheck3"/>  
+							<Label Text="address1"
+							FontSize="12"
+							VerticalOptions="Center"
+							VerticalTextAlignment="Center"
+							LineBreakMode="TailTruncation"
+							x:Name="lblAddress3"/>  
+							</StackLayout>
+						
+					</StackLayout>  
+
+
+
+
+
+					<StackLayout
+				Orientation="Horizontal"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="CenterAndExpand"
+				BackgroundColor="#6FAD57"
+				HeightRequest="40"
+				Spacing="10"
+				x:Name="_slSelectStoreAddress"	>
+						<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="_slSelectStoreAddress_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+				<Image
+						Margin="15,10,10,10"
+						Source="marker"/> 
+					<Label Text="Select store Address"
+					TextColor="White"
+					FontSize="Medium"
+					VerticalTextAlignment="Center"
+						/>
+
+				<Image
+						Margin="10,10,10,10"
+						HorizontalOptions="End"
+						Source="arrow"/>
+					</StackLayout>
+					<StackLayout x:Name="_slStoreAddress">
+
+					<StackLayout Orientation="Horizontal" 
+							 Margin="15,10,0,0"
+							x:Name="_slStoreAddress1"
+							IsVisible="false">
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="_slStoreAddress1_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+							<Image Source="uncheck"
+							VerticalOptions="CenterAndExpand"
+							x:Name="imgStoreCheck1"/> 
+							<Label Text="address1"
+							FontSize="12"
+							VerticalOptions="Center"
+							VerticalTextAlignment="Center"
+							LineBreakMode="TailTruncation"
+							x:Name="lblStoreAddress1"/>
+							</StackLayout>
+						
+						<StackLayout Orientation="Horizontal"  
+							 Margin="15,10,0,0"
+							x:Name="_slStoreAddress2"
+							IsVisible="false">
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="_slStoreAddress2_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+							<Image Source="uncheck"
+							VerticalOptions="CenterAndExpand"
+							x:Name="imgStoreCheck2"/>  
+							<Label Text="address1"
+							FontSize="12"
+							VerticalOptions="Center"
+							VerticalTextAlignment="Center"
+							LineBreakMode="TailTruncation"
+							x:Name="lblStoreAddress2"/> 
+							</StackLayout>  
+
+						<StackLayout Orientation="Horizontal" 
+							 Margin="15,10,0,0"
+							x:Name="_slStoreAddress3"
+							IsVisible="false">
+							<StackLayout.GestureRecognizers> 
+					<TapGestureRecognizer Tapped="_slStoreAddress3_Tapped"/> 
+				</StackLayout.GestureRecognizers>
+							<Image Source="uncheck"
+							VerticalOptions="CenterAndExpand"
+							x:Name="imgStoreCheck3"/>  
+							<Label Text="address1"
+							FontSize="12"
+							VerticalOptions="Center"
+							VerticalTextAlignment="Center"
+							LineBreakMode="TailTruncation"
+							x:Name="lblStoreAddress3"/>  
+							</StackLayout>
+					</StackLayout>
+					
+					
+
+				<Label Text="PAYMENTS"
+					TextColor="Black"
+					FontSize="Medium"
+					Margin="0,10,0,0"/>
+				<StackLayout
+				Orientation="Horizontal"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Center"
+				BackgroundColor="#6FAD57"
+				HeightRequest="40"
+				Spacing="10"
+						>
+					<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="_slCash_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+				<Image
+						Margin="15,10,10,10"
+						Source="uncheck"
+						x:Name="imgCashCheck"/> 
+					<Image
+						Margin="10,10,10,10"
+						HorizontalOptions="End"
+						Source="dollar"
+						/>
+					<Label Text="Cash"
+					TextColor="White"
+					FontSize="Medium"
+					VerticalTextAlignment="Center" 
+						/>
+						</StackLayout> 
+				<StackLayout
+				Orientation="Horizontal"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Center"
+				BackgroundColor="#6FAD57"
+				HeightRequest="40"
+				Spacing="10"
+				Margin="0,20,0,0"		>
+					<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="_slCreditCard_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+				<Image
+						Margin="15,10,10,10"
+						Source="uncheck"
+						x:Name="imgCreditCheck"/>
+					<Image
+						Margin="10,10,10,10"
+						HorizontalOptions="End"
+						Source="credit_card"/>
+					<Label Text="Credit Card"
+					TextColor="White"
+					FontSize="Medium"
+					VerticalTextAlignment="Center"
+						/>
+
+				</StackLayout>
+					<StackLayout x:Name="_slCreditSection" >
+				<StackLayout
+				Orientation="Horizontal"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Center"
+				HeightRequest="40"
+				Spacing="10"
+				Margin="0,20,0,0"		>
+					
+				<Label Text="Card number"
+					TextColor="Black"
+					FontSize="Small"
+					VerticalTextAlignment="Center"
+						/>
+					<Entry 
+					HorizontalOptions="End"
+						Placeholder="Enter card number"
+						Margin="17,0,0,0"
+						PlaceholderColor="Gray"
+							x:Name="txtCareNumber"/>
+
+				</StackLayout>
+				<StackLayout
+				Orientation="Horizontal"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Center"
+				HeightRequest="40"
+					>
+					
+				<Label Text="Expiration date"
+					TextColor="Black"
+					FontSize="Small"
+					VerticalTextAlignment="Center"
+						/>
+					<Entry 
+					    HorizontalOptions="End"
+						Placeholder="Enter date"
+						Margin="10,0,0,0"
+						PlaceholderColor="Gray"
+							x:Name="txtDate"/>
+
+				</StackLayout>
+				<StackLayout
+				Orientation="Horizontal"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Center"
+				HeightRequest="40"
+					>
+					
+				<Label Text="Security code"
+					TextColor="Black"
+					FontSize="Small"
+					VerticalTextAlignment="Center"
+						/>
+					<Entry 
+					    HorizontalOptions="End"
+						Placeholder="Enter code"
+						Margin="15,0,0,0"
+						PlaceholderColor="Gray"
+							x:Name="txtCode"/>
+
+				</StackLayout>
+						</StackLayout>      
+				<Button
+					BackgroundColor="#6FAD57"
+					BorderRadius="0"
+					Text="Confirm Order"
+					TextColor="White"
+					Margin="0,15,0,15"
+					FontSize="18"
+					FontAttributes="Bold"
+					x:Name="btnConfirmOrder"
+					Clicked="ConfirmOrder_Clicked"/>
+				</StackLayout>
+		</StackLayout>
+		</ScrollView> 
+		</StackLayout>
+</ContentPage>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+        xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+        x:Class="Fazaa.SearchPage">
+<StackLayout
+            Orientation="Vertical"
+            Spacing="0" 
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Margin="0"
+            Padding="0"
+            >
+        <StackLayout>
+           
+<!--Title bar-->
+       <StackLayout x:Name="_slTitleBar"
+            Padding="0" Orientation="Horizontal" 
+            HeightRequest="65" BackgroundColor="#326FB7"> 
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Image 
+                    x:Name="imgMenu" 
+                Source="back" 
+                VerticalOptions="CenterAndExpand"
+                Margin="30,25,30,30" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="back_Tapped" /> 
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+          
+                <Image Source="fazza_name"
+                HorizontalOptions="CenterAndExpand" 
+            VerticalOptions="CenterAndExpand"/> 
+            
+            <StackLayout VerticalOptions="FillAndExpand"  
+                WidthRequest="80"> 
+            <RelativeLayout 
+                    >
+            <Image Source="right_logo" 
+                    Aspect="AspectFill"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.4}"
+                IsVisible="false">
+
+            </Image>
+            </RelativeLayout>
+            </StackLayout>
+                
+            
+        </StackLayout>              
+              <SearchBar HeightRequest="50" 
+          
+            x:Name="searchBar"
+           CancelButtonColor="White"
+           Placeholder="Search"
+        ><SearchBar.BackgroundColor>
+      <OnPlatform x:TypeArguments="Color"
+                      iOS="#326FB7"
+                      Android="#FFFFFF" />
+                </SearchBar.BackgroundColor>
+            </SearchBar>
+
+            </StackLayout> 
+       <!-- <StackLayout Orientation="Horizontal"
+        HeightRequest="50" 
+        BackgroundColor="Red">
+
+        </StackLayout>-->
+        
+        <StackLayout VerticalOptions="FillAndExpand">
+
+
+
+
+        
+       
+            
+
+
+
+            
+                    
+        <flv:FlowListView 
+            SeparatorVisibility="None"
+            HasUnevenRows="true"
+            FlowItemTappedCommand="{Binding ItemTappedCommand}" 
+            FlowLastTappedItem="{Binding LastTappedItem}"
+            FlowColumnMinWidth="150" 
+            x:Name="flowlistview"
+               
+               Margin="0,20,0,0" >
+                
+
+            <flv:FlowListView.FlowColumnTemplate>
+                <DataTemplate>
+                    <Grid Padding="10" RowSpacing="1" ColumnSpacing="1" >
+                        
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" /> 
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout>
+                            <Frame Padding="2" BackgroundColor="#EDEDEE"
+                                HasShadow="false" OutlineColor="Silver"> 
+                <StackLayout>
+                <RelativeLayout HeightRequest="{Binding height}"  
+                x:Name="imgTopBackgroud" 
+            VerticalOptions="Start"> 
+
+                                        <ffimageloading:CachedImage 
+                            Source="{Binding Product_Image}"
+                            Aspect="AspectFill" 
+                            LoadingPlaceholder="image_loading.png"
+                            ErrorPlaceholder="image_error.png"
+                                                DownsampleWidth="200"
+                                                DownsampleHeight="200"
+                                                DownsampleToViewSize="true"
+RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+               RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+
+               <Grid RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}"> 
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start"
+                                VerticalOptions="Start" Padding="10">
+                                <Image Source="add_wishlist"/>
+                                <Image Source="icon"/>
+                            </StackLayout>
+
+            </Grid>
+          
+          </RelativeLayout>
+                
+
+                </StackLayout>
+            </Frame>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Label Text="{Binding Product_description}"
+                        HorizontalOptions="Center"
+                        LineBreakMode="TailTruncation"
+                        Margin="10,0,10,0"
+                                        FontSize="12"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Label TextColor="#668DC6" Text="Price:" FontSize="12"/>
+                            <Label TextColor="#668DC6" Text="{Binding Product_Price}" FontSize="12"/>
+                        </StackLayout>
+                    </StackLayout>
+                                </StackLayout>
+            </Grid>
+                </DataTemplate>
+            </flv:FlowListView.FlowColumnTemplate>
+        </flv:FlowListView>
+        <!-- static Footer  -->
+        <RelativeLayout VerticalOptions="EndAndExpand">
+            <StackLayout x:Name="_slFooter" HeightRequest="60" Orientation="Horizontal" BackgroundColor="White" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+                <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="1" RowSpacing="0">
+                    <StackLayout Grid.Column="0" BackgroundColor="#66B047"
+                            VerticalOptions="FillAndExpand"
+                            Padding="0,0,0,5"
+                            x:Name="_slGroceries">
+                        <Image 
+                        Margin="0,10,0,0" 
+                        Source="groceries"
+                    VerticalOptions="CenterAndExpand"/>
+                <Label Text="Groceries"
+                    TextColor="White"
+                    FontSize="8"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Center"/>
+                    <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="grocerry_Tapped" /> 
+                </StackLayout.GestureRecognizers>   
+                    </StackLayout>
+                    <StackLayout  Grid.Column="1" VerticalOptions="FillAndExpand" Padding="0" Margin="0">
+                        <StackLayout x:Name="_slCoffee" BackgroundColor="#7AB064" VerticalOptions="FillAndExpand"
+                                Padding="0,5,0,5">
+                            <Image 
+                        Margin="0,0,0,0"
+                        Source="coffee"
+                    VerticalOptions="CenterAndExpand"/>
+                <Label x:Name="lblCoffee"
+                                    Text="Coffee"
+                    TextColor="White"
+                    FontSize="8"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Center"/></StackLayout>
+                            <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="coffee_Tapped" /> 
+                </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <StackLayout x:Name="_slPharmacy" Grid.Column="2" BackgroundColor="#7AB064"
+                        VerticalOptions="FillAndExpand"
+                            Padding="0,0,0,5">
+                        <Image 
+                        Margin="0,10,0,0"
+                        Source="pharmacy"
+                    VerticalOptions="CenterAndExpand"/>
+                <Label Text="Pharmacies"
+                    TextColor="White"
+                    FontSize="8"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Center"/>
+                            <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="pharmacies_Tapped" /> 
+                </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                        <StackLayout x:Name="_slRestaurants" Grid.Column="3" BackgroundColor="#7AB064"
+                        VerticalOptions="FillAndExpand"
+                            Padding="0,0,0,5">
+                        <Image 
+                        Margin="0,10,0,0"
+                        Source="restaurants"
+                    VerticalOptions="CenterAndExpand"/>
+                <Label Text="Restaurants"
+                    TextColor="White"
+                    FontSize="8"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Center"/>
+                            <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="restaurants_Tapped" /> 
+                </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                        <StackLayout x:Name="_slDeliever" Grid.Column="4" BackgroundColor="#7AB064"
+                        VerticalOptions="FillAndExpand"
+                            Padding="0,0,0,5">
+                        <Image 
+                        Margin="0,10,0,0"
+                        Source="deliver"
+                    VerticalOptions="CenterAndExpand"/>
+                <Label Text="Deliever"
+                    TextColor="White"
+                    FontSize="8"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Center"/>
+                            <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="deliever_Tapped" /> 
+                </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </RelativeLayout>
+        </StackLayout>
+        </StackLayout>
+</ContentPage>

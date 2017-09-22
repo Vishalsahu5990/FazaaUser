@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:local="clr-namespace:Fazaa;assembly=Fazaa"
+		x:Class="Fazaa.Login"
+		>
+
+	<RelativeLayout 
+            Padding="0"
+            Margin="0"
+            x:Name="_MainLayout"
+            RelativeLayout.WidthConstraint="{ConstraintExpression , Property=Width,Type=RelativeToParent}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression , Property=Height,Type=RelativeToParent}">
+
+        <Image Source="login_bg"
+                x:Name="imgBG"
+			Aspect="AspectFill" 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Property=Width, Constant=0}"
+              RelativeLayout.WidthConstraint="{ConstraintExpression , Property=Width,Type=RelativeToParent}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression , Property=Height,Type=RelativeToParent}"/>
+
+		 <Grid RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            
+            <StackLayout x:Name="_slMainLayout" VerticalOptions="CenterAndExpand" Padding="40" Spacing="10">
+            <StackLayout 
+			Orientation="Vertical"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Margin="0,20,0,0"
+			Spacing="10"
+			>
+		<Image Source="logo"/>
+						<Frame Margin="0,20,0,0" Padding="0" 
+							HasShadow="false"
+							OutlineColor="Transparent">
+						<StackLayout 
+			Orientation="Horizontal"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Spacing="0"
+			>
+		<local:MyEntry 
+									x:Name="txtEmail"
+									Keyboard="Email"
+					Placeholder="Email"
+					HorizontalOptions="FillAndExpand"
+					HeightRequest="40"
+					FontSize="14"
+								Margin="10,0,0,0"/>
+				
+		<Image Source="user_name"
+					HeightRequest="40"
+								VerticalOptions="CenterAndExpand"
+                            Margin="0,0,10,0"/>
+
+			</StackLayout>	
+						</Frame>
+
+						<Frame Margin="0,20,0,0" Padding="0" 
+							HasShadow="false"
+							OutlineColor="Transparent">
+						
+		<StackLayout 
+			Orientation="Horizontal"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start" 
+			Spacing="0">
+		<local:MyEntry 
+									x:Name="txtPassword"
+									IsPassword="true"
+									Placeholder="Password" 
+					HorizontalOptions="FillAndExpand"
+					HeightRequest="40"
+					FontSize="14"
+								Margin="10,0,0,0"/>
+				
+		<Image Source="password"
+		       HeightRequest="40"
+								VerticalOptions="CenterAndExpand"
+                            Margin="0,0,10,0"/>
+						
+			</StackLayout>
+
+							</Frame>
+						<StackLayout  HorizontalOptions="End" >
+						<Label
+				x:Name="lblForgotpassword"
+				BackgroundColor="Transparent"
+				Text="Forgot password?"
+				HorizontalOptions="End" 
+				TextColor="White">
+
+						</Label>
+							<StackLayout.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ForgotPasswordTapped"/> 
+    </StackLayout.GestureRecognizers> 
+						</StackLayout>
+			
+			
+			<StackLayout 
+			Margin="0,10,0,0"
+			Orientation="Horizontal"
+			Spacing="10"
+			HorizontalOptions="FillAndExpand">
+							
+
+						<local:CustomButton
+			Text="SIGN UP"
+			TextColor="White"
+		    x:Name="btnSignup"
+			BackgroundColor="#336FB7" 
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Center"
+			BorderColor="White"
+			BorderRadius="20"
+			BorderWidth="1"
+			HeightRequest="40"/>
+						
+				      <local:CustomButton
+			Text="SIGN IN"
+			TextColor="White"
+		    x:Name="btnSignIn"
+			BackgroundColor="#87C86B" 
+			HorizontalOptions="FillAndExpand"
+			BorderColor="White"
+			BorderRadius="20"
+			BorderWidth="1"
+            HeightRequest="40"/>
+					
+						</StackLayout>
+
+
+						
+			<Label 
+				Text="Signin via Social Media"
+				HorizontalTextAlignment="Center"
+				Margin="0,20,0,0"
+				TextColor="White"/>
+			<StackLayout 
+			Orientation="Horizontal"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Center"
+			Spacing="10">
+				<StackLayout
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="Center">
+			<BoxView 
+				BackgroundColor="White"
+				HeightRequest="1"
+				HorizontalOptions="FillAndExpand"/>
+					</StackLayout>
+				<StackLayout
+						HorizontalOptions="Center">
+				<local:CustomButton
+					HeightRequest="8"
+					WidthRequest="8"
+					BorderRadius="4"
+					BackgroundColor="White"
+					IsEnabled="false"
+					HorizontalOptions="Center"
+								x:Name="btnCircle"/>
+				</StackLayout>
+
+				<StackLayout
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="Center">
+			<BoxView 
+				BackgroundColor="White"
+				HeightRequest="1"
+				HorizontalOptions="FillAndExpand"/> 
+					</StackLayout>
+				</StackLayout> 
+			<StackLayout 
+			Orientation="Horizontal"
+			HorizontalOptions="Center"
+			VerticalOptions="Center" 
+			Spacing="20"> 
+		<Image
+					Source="fb">  
+								<Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="fbTapped"/>   
+    </Image.GestureRecognizers> 
+							</Image>
+		<Image
+					Source="twitter">
+					<Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="twitterTapped"/> 
+    </Image.GestureRecognizers> 
+							</Image> 
+			</StackLayout>	
+	</StackLayout>
+				</StackLayout>
+			
+
+
+   
+        
+		</Grid>
+
+   
+            </RelativeLayout> 
+	</ContentPage>

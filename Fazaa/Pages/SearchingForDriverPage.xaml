@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Fazaa.SearchingForDriverPage"
+	xmlns:local="clr-namespace:Fazaa;assembly=Fazaa"
+	>
+
+	<StackLayout >
+
+	<!--Title bar--> 
+<StackLayout
+			x:Name="_slTitleBar"
+			Padding="0,0,0,0" Orientation="Horizontal"  
+			HeightRequest="80" BackgroundColor="#326FB7">
+
+			<Grid HorizontalOptions="FillAndExpand">
+
+			<Label Grid.Column="0" Text="Searching for driver" HorizontalOptions="CenterAndExpand" 
+			VerticalOptions="CenterAndExpand" FontAttributes="Bold"
+			FontSize="20"
+			TextColor="White"
+			x:Name="lblTitle"
+			/>  
+				
+			</Grid>  
+
+			</StackLayout> 
+	<StackLayout HorizontalOptions="FillAndExpand" Padding="16" VerticalOptions="CenterAndExpand">
+
+	
+	<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Spacing="0">
+			
+	
+			<!--<Image Source="tab_green"/> 
+			<Image Source="tab"/>
+			<Image Source="tab"/>-->  
+
+		</StackLayout>
+
+		<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+		<StackLayout 
+					Orientation="Horizontal" 
+					HorizontalOptions="CenterAndExpand">
+		<Image Source="usr"/>
+			<!--<Image Source="layer_2"
+			x:Name="imgDash"
+				HorizontalOptions="CenterAndExpand"/>-->
+					<Label
+					x:Name="imgDash"
+						Text="........................."
+					VerticalOptions="Center"
+					HorizontalOptions="Center"/>
+			<Image Source="driver" HorizontalOptions="End"/>
+
+		</StackLayout>
+			<local:MyWebview HorizontalOptions="CenterAndExpand"
+			x:Name="webview"
+			Source="http://www.kapl.org.sa/images/loading2.gif"
+			HeightRequest="50"
+			Margin="10"
+				/>
+		<Label 
+			Text="Please wait...We are finding a driver for you"
+			FontSize="Medium"
+			HorizontalTextAlignment="Center"
+		/>
+		</StackLayout> 
+	</StackLayout> 
+	</StackLayout>  
+</ContentPage>     

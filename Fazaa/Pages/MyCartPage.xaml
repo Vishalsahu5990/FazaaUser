@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	     x:Class="Fazaa.MyCartPage"
+	    xmlns:local="clr-namespace:Fazaa;assembly=Fazaa"
+	    xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+		xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="My Cart(0)"
+		BackgroundColor="White"
+		Padding="0">
+	<StackLayout
+            Orientation="Vertical"
+            Spacing="0" 
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Margin="0"
+            Padding="0"
+            >
+			 
+<!--Title bar--> 
+<StackLayout
+            x:Name="_slTitleBar"
+            Padding="0,0,0,0" Orientation="Horizontal"  
+            HeightRequest="65" BackgroundColor="#326FB7">
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Image Source="navigation" VerticalOptions="CenterAndExpand" Margin="30" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="menu_Tapped" /> 
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <Label Text="My Cart(0)" HorizontalOptions="CenterAndExpand" 
+            VerticalOptions="CenterAndExpand" FontAttributes="Bold"
+            FontSize="20"
+            TextColor="White"
+            x:Name="lblTitle"
+            Margin="0,10,0,0"/>
+            
+            <StackLayout VerticalOptions="FillAndExpand"  
+                WidthRequest="80">
+            <RelativeLayout 
+                    >
+            <Image Source="right_logo" 
+                    Aspect="AspectFill"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.5}"
+                >
+               
+            </Image>
+            </RelativeLayout>
+            </StackLayout>
+                
+            
+        </StackLayout>
+
+
+		
+			<ListView   
+				x:Name="listView"
+			 ItemsSource="{Binding Items}"
+			 SeparatorColor="Gray"
+				VerticalOptions="FillAndExpand"
+				Margin="0,30,0,0"
+			HasUnevenRows="true"
+			Footer="{Binding .}"> 
+			
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell >
+
+		<StackLayout Orientation="Horizontal">
+			
+		
+	  <StackLayout
+			HorizontalOptions="FillAndExpand" 
+			VerticalOptions="Center"  
+			Orientation="Vertical" 
+			BackgroundColor="White" 
+				Padding="10"	
+				Spacing="0"
+				Margin="5"> 
+
+				<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Center"
+			Orientation="Horizontal"
+
+					>
+								<ffimageloading:CachedImage
+							Source="{Binding Product_Image}"
+				           HeightRequest="70"
+					WidthRequest="60"
+					Aspect="AspectFill"
+					Margin="5,0,5,0"
+							LoadingPlaceholder="image_loading.png"
+							ErrorPlaceholder="image_error.png"
+					/>
+					<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Orientation="Vertical"
+
+					>
+					<Label
+					FontAttributes="Bold"
+					Text="{Binding Product_Store_Type}"
+					FontSize="12"
+					x:Name="lblTitle"
+					TextColor="#336FB7"
+					/>
+
+				<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Orientation="Horizontal"
+						>
+			<Label 
+					LineBreakMode="TailTruncation"
+					Text="{Binding Product_description}"
+					FontSize="9"
+					x:Name="lblDescription"
+					TextColor="Gray"
+					Margin="0,0,20,0"
+							VerticalTextAlignment="Center"/>
+						
+					</StackLayout>
+						
+							<StackLayout
+			Orientation="Horizontal"
+			Spacing="5"
+						> 
+
+						<Label 
+					Text="{Binding Product_Price}"
+					FontSize="13"
+					x:Name="lblAmount"
+					TextColor="#91CA46"
+					FontAttributes="Bold"			
+					HorizontalOptions="Start"
+						Margin="0,5,0,0"/>
+						<Label Text="x"
+						FontSize="12"
+						VerticalTextAlignment="Start"
+						Margin="0,5,0,0"/>
+						<RelativeLayout
+								Margin="0,2,0,0"
+							HorizontalOptions="Start">
+							<local:CustomButton
+							TextColor="Black"
+							FontSize="7"
+							HeightRequest="20"
+							WidthRequest="35"
+							BackgroundColor="White"
+							VerticalOptions="FillAndExpand"
+									BorderColor="Silver"
+								BorderWidth="1"
+								BorderRadius="0"
+														CommandParameter="{Binding Product_Id}"
+													Clicked="Quantity_Clicked"
+								 RelativeLayout.WidthConstraint="{ConstraintExpression , Property=Width,Type=RelativeToParent}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression , Property=Height,Type=RelativeToParent}"/>
+								<Label Text="{Binding quantity}"
+								FontSize="7"
+								RelativeLayout.XConstraint=
+									"{ConstraintExpression 
+									Property=X ,
+									Type=Constant ,Constant=7}"
+								RelativeLayout.YConstraint="{ConstraintExpression 
+								Property=Y ,Type=Constant ,Constant=6}"/>
+					<Image Source="downarrow" Margin="2"
+								HeightRequest="10"
+								WidthRequest="10"
+								RelativeLayout.XConstraint="{ConstraintExpression Property=X ,Type=Constant ,Constant=20}"
+								RelativeLayout.YConstraint="{ConstraintExpression Property=Y ,Type=Constant ,Constant=4}"/>
+							</RelativeLayout>
+						<Label Text="="
+						FontSize="12"
+						VerticalTextAlignment="Start"
+						Margin="0,5,0,0"/>
+						<Label 
+					Text="{Binding Calculated_Price}"
+					FontSize="13"
+					TextColor="#91CA46"
+					FontAttributes="Bold"			
+					HorizontalOptions="Start"
+						Margin="0,5,0,0"/>
+						<StackLayout
+			HorizontalOptions="EndAndExpand"
+			VerticalOptions="End"
+			Orientation="Horizontal"
+			Spacing="10"
+			> 
+											
+						
+
+					</StackLayout>
+						</StackLayout>
+					</StackLayout>
+			</StackLayout>
+				
+				</StackLayout>
+							<RelativeLayout
+								Margin="0,2,5,0"
+							HorizontalOptions="Start"
+								VerticalOptions="Center"
+								>
+							<local:CustomButton
+							TextColor="Black"
+							FontSize="7"
+							HeightRequest="20"
+							WidthRequest="35"
+							BackgroundColor="White"
+							VerticalOptions="FillAndExpand"
+									BorderColor="Silver"
+								BorderWidth="1"
+								BorderRadius="0"
+									CommandParameter="{Binding Product_Id}"
+					Clicked="Delete_Clicked"	
+								 RelativeLayout.WidthConstraint="{ConstraintExpression , Property=Width,Type=RelativeToParent}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression , Property=Height,Type=RelativeToParent}"/>
+								<Label Text="delete"
+								FontSize="8"
+				TextColor="Gray"
+								RelativeLayout.XConstraint=
+									"{ConstraintExpression 
+									Property=X ,
+									Type=Constant ,Constant=7}"
+								RelativeLayout.YConstraint="{ConstraintExpression 
+								Property=Y ,Type=Constant ,Constant=6}"/>
+						</RelativeLayout>
+							
+
+			</StackLayout>
+
+			  </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+			 <ListView.FooterTemplate>
+				<DataTemplate>
+     <StackLayout
+			Orientation="Horizontal"
+					Margin="0,10,0,0"
+			Padding="10"
+			HeightRequest="40"
+			BackgroundColor="#6E99CC">
+			<StackLayout
+			HorizontalOptions="Start"
+			VerticalOptions="Center"
+			Orientation="Horizontal"
+			Spacing="10"
+			>
+						<Label 
+					VerticalTextAlignment="Center"
+					Text="{Binding Summary}" 
+					FontSize="12"
+					TextColor="White"
+					FontAttributes="Bold"			
+					HorizontalOptions="StartAndExpand"/>
+						
+					</StackLayout>
+			<StackLayout
+			HorizontalOptions="EndAndExpand" 
+			VerticalOptions="Center"  
+			Orientation="Horizontal"
+			Spacing="10"
+			>
+						<Label 
+					VerticalTextAlignment="Center"
+					Text="{Binding Amount}"
+					FontSize="12"
+					TextColor="White"
+					FontAttributes="Bold"			
+					HorizontalOptions="StartAndExpand"/>
+						
+					</StackLayout>
+						<StackLayout
+			HorizontalOptions="EndAndExpand"
+			VerticalOptions="End"
+			Orientation="Horizontal"
+			Spacing="10"
+			>
+						<local:CustomButton
+					Text="Checkout"
+					  BackgroundColor="#7AB064"
+						WidthRequest="100"
+						BorderRadius="0"
+						TextColor="White"
+						FontSize="12"
+						VerticalOptions="Center"
+							Clicked="Checkout_Clicked"
+							CommandParameter="{Binding Store_Id}"/> 
+						
+					</StackLayout>
+						</StackLayout>
+					</DataTemplate>
+  </ListView.FooterTemplate>
+        </ListView>
+		<!-- static Footer	-->
+		<RelativeLayout>
+			<StackLayout x:Name="_slFooter" HeightRequest="60" Orientation="Horizontal" BackgroundColor="White" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+				<Grid HorizontalOptions="FillAndExpand" ColumnSpacing="1" RowSpacing="0">
+					<StackLayout Grid.Column="0" BackgroundColor="#7AB064"
+							VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5"
+							x:Name="_slGroceries">
+						<Image 
+						Margin="0,10,0,0"
+						Source="groceries"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Groceries"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+					<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="grocerry_Tapped" /> 
+				</StackLayout.GestureRecognizers>	
+					</StackLayout>
+					<StackLayout  Grid.Column="1" VerticalOptions="FillAndExpand" Padding="0" Margin="0">
+						<StackLayout x:Name="_slCoffee" BackgroundColor="#7AB064" VerticalOptions="FillAndExpand"
+								Padding="0,0,0,5">
+							<Image 
+						Margin="0,10,0,0"
+						Source="coffee"
+					VerticalOptions="CenterAndExpand"/>
+				<Label x:Name="lblCoffee"
+									Text="Coffee"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/></StackLayout>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="coffee_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+					<StackLayout x:Name="_slPharmacy" Grid.Column="2" BackgroundColor="#7AB064"
+						VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5">
+						<Image 
+						Margin="0,10,0,0"
+						Source="pharmacy"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Pharmacies"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="pharmacies_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+						<StackLayout x:Name="_slRestaurants" Grid.Column="3" BackgroundColor="#7AB064"
+						VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5">
+						<Image 
+						Margin="0,10,0,0"
+						Source="restaurants"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Restaurants"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="restaurants_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+						<StackLayout x:Name="_slDeliever" Grid.Column="4" BackgroundColor="#7AB064"
+						VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5">
+						<Image 
+						Margin="0,10,0,0" 
+						Source="deliver"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Deliever"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="deliever_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+				</Grid>
+			</StackLayout>
+		</RelativeLayout>
+
+		</StackLayout>
+</ContentPage>

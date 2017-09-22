@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	x:Class="Fazaa.ProductDetailsPage"
+	xmlns:local="clr-namespace:Fazaa;assembly=Fazaa"
+	BackgroundColor="White"
+		>
+	
+	<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			Orientation="Vertical"
+			Spacing="10"
+		Margin="0"
+			Padding="0">
+
+			<!--Title bar-->
+		<StackLayout x:Name="_slTitleBar"
+			Padding="0" Orientation="Horizontal" 
+			HeightRequest="65" BackgroundColor="#326FB7"> 
+			<StackLayout Orientation="Horizontal" > 
+				<Image x:Name="imgBack" 
+				Source="back" 
+				VerticalOptions="CenterAndExpand" 
+				Margin="30,0,0,0"/>	<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="back_Tapped" />  
+				</StackLayout.GestureRecognizers>   
+			</StackLayout> 
+
+			<StackLayout  VerticalOptions="FillAndExpand"
+				Orientation="Horizontal" Padding="0" Spacing="1" Margin="0"
+				HorizontalOptions="EndAndExpand">
+					<StackLayout  Padding="7" >
+					<Image Aspect="AspectFill" VerticalOptions="CenterAndExpand"
+			Source="top_search" >    
+			  
+			</Image>    
+					<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="search_Tapped" />
+				</StackLayout.GestureRecognizers>
+				</StackLayout>
+				<RelativeLayout WidthRequest="40" Padding="0,0,0,10">
+					<Grid
+						 RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}" >
+						<StackLayout  Spacing="0"
+							Margin="0,0,10,0" 
+							VerticalOptions="CenterAndExpand">
+								<Label Text="1" 
+								IsVisible="false"
+							x:Name="lblCarCount"
+					FontSize="7" 
+					TextColor="White" 
+					FontAttributes="Bold" 
+							HorizontalOptions="Center"/>
+						<Image Source="top_cart" VerticalOptions="CenterAndExpand"
+							Margin="0,0,0,0"
+							x:Name="imgCart"/>
+						</StackLayout>
+					
+					</Grid>
+					<RelativeLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="cart_Tapped" /> 
+				</RelativeLayout.GestureRecognizers>
+				</RelativeLayout> 
+			
+			<!--<StackLayout  Padding="7" 
+						>
+            <RelativeLayout>
+					<Image
+						Source="top_cart" 
+						Margin="0,0,10,0" 
+						VerticalOptions="CenterAndExpand"
+						RelativeLayout.XConstraint=
+									"{ConstraintExpression 
+									Property=X ,
+									Type=Constant ,Constant=7}"
+								RelativeLayout.YConstraint="{ConstraintExpression 
+								Property=Y ,Type=Constant ,Constant=6}"	>
+				
+			</Image>
+					<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="cart_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+						</RelativeLayout>
+				</StackLayout>-->
+			
+				</StackLayout>
+		</StackLayout>
+		<StackLayout>
+
+
+		<ScrollView IsClippedToBounds="true"> 
+				<StackLayout Padding="10">
+
+			
+			<ffimageloading:CachedImage 
+					x:Name="imgProduct"
+							Aspect="AspectFill"
+							LoadingPlaceholder="logo.png"
+							ErrorPlaceholder="logo.png"
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="Start"/> 
+			
+		<Label 
+				Text="Dermalogica Intensive Moisture Balance"
+				TextColor="Black"
+			FontSize="16"
+				x:Name="lblProductName"
+			/> 
+		<StackLayout
+			Margin="0,10,0,0"
+			Orientation="Horizontal"
+			>
+
+						<Label
+					Margin="5,0,0,0"
+					Text="Price :"
+					FontSize="16"
+					TextColor="Black"
+					HorizontalOptions="Start"
+				VerticalTextAlignment="Center"
+						/>
+				<Label
+					Text="15SR"
+					FontSize="16"
+					x:Name="lblPrice"
+					TextColor="Black"
+					HorizontalOptions="StartAndExpand"
+				VerticalTextAlignment="Center"/>
+						<StackLayout
+			HorizontalOptions="EndAndExpand"
+			VerticalOptions="End"
+			Orientation="Horizontal"
+			Spacing="10"
+			>
+				        <StackLayout BackgroundColor="#326FB7" HeightRequest="35" WidthRequest="150" Orientation="Horizontal">
+				        <Image Margin="10" Source="heart_btn" />
+						<Label FontSize="15"
+						Text="Add to wishlist"
+						TextColor="White"
+						VerticalOptions="Center"/>  
+								<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="addToWishlist_Tapped" />  
+				</StackLayout.GestureRecognizers>   
+					</StackLayout> 
+				
+					</StackLayout>
+			
+						</StackLayout> 
+		<BoxView
+			BackgroundColor="Gray"
+			HeightRequest="1"
+			/>
+					<StackLayout Orientation="Horizontal" Padding="0,10,10,10"
+						Spacing="10" VerticalOptions="Center">
+							<Label Text="Number of order:"
+							FontSize="Small"/>
+						<Image
+						HeightRequest="25"
+							WidthRequest="25"
+							x:Name="btnMinus"
+						HorizontalOptions="Center"
+						Source="minuss"> 
+						<Image.GestureRecognizers>
+					<TapGestureRecognizer Tapped="minus_Tapped" />  
+				</Image.GestureRecognizers>   
+						</Image>
+						<Label Text="1" 
+						x:Name="lblQuantity"
+						WidthRequest="30"
+						HorizontalTextAlignment="Center"
+						VerticalTextAlignment="Center"/>  
+						<Image
+						HeightRequest="25"
+							WidthRequest="25"
+							x:Name="btnPlus"
+						HorizontalOptions="Center"
+						Source="pluss">
+						<Image.GestureRecognizers>
+					<TapGestureRecognizer Tapped="plus_Tapped" />   
+				</Image.GestureRecognizers> 
+						</Image>
+						</StackLayout>
+			<StackLayout Orientation="Horizontal">
+						<StackLayout
+
+			VerticalOptions="Start"
+			Orientation="Vertical"
+			Spacing="0">
+			<Label 
+				Text="Details :"
+				TextColor="Black"
+			FontSize="16"/>
+								
+		<BoxView
+			BackgroundColor="Gray"
+			HeightRequest="1"
+			HorizontalOptions="Start"
+			WidthRequest="52"
+			/>
+							<Label  
+				Text="No details." 
+				TextColor="Gray"
+				FontSize="12"
+			x:Name="lblDetails"
+							Margin="0,5,0,10"/> 
+				</StackLayout> 
+						
+			
+						
+
+					</StackLayout>
+			<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Orientation="Horizontal"
+			>
+			<Button
+					Text="Buy Now"
+						TextColor="White"
+					BackgroundColor="#336FB7"
+					HorizontalOptions="FillAndExpand"
+				BorderRadius="0"
+                        x:Name="btnBuyNow"/>
+				<Button
+					TextColor="White"
+					Text="Add to cart"
+					BackgroundColor="#336FB7"
+					HorizontalOptions="FillAndExpand"
+					BorderRadius="0"
+						x:Name="btnAddtoCart"/> 
+				
+			</StackLayout> 
+					</StackLayout>
+				</ScrollView>
+	</StackLayout>
+		<!-- static Footer	-->
+		<RelativeLayout VerticalOptions="EndAndExpand">
+			<StackLayout x:Name="_slFooter" HeightRequest="60" Orientation="Horizontal" BackgroundColor="White" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+				<Grid HorizontalOptions="FillAndExpand" ColumnSpacing="1" RowSpacing="0">
+					<StackLayout Grid.Column="0" BackgroundColor="#7AB064"
+							VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5"
+							x:Name="_slGroceries">
+						<Image 
+						Margin="0,10,0,0"
+						Source="groceries"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Groceries"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+					<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="grocerry_Tapped"/> 
+				</StackLayout.GestureRecognizers>	
+					</StackLayout>
+					<StackLayout  Grid.Column="1" VerticalOptions="FillAndExpand" Padding="0" Margin="0">
+						<StackLayout x:Name="_slCoffee" BackgroundColor="#7AB064" VerticalOptions="FillAndExpand"
+								Padding="0,0,0,5">
+							<Image 
+						Margin="0,10,0,0"
+						Source="coffee"
+					VerticalOptions="CenterAndExpand"/>
+				<Label x:Name="lblCoffee"
+									Text="Coffee"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/></StackLayout>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="coffee_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+					<StackLayout x:Name="_slPharmacy" Grid.Column="2" BackgroundColor="#7AB064"
+						VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5">
+						<Image 
+						Margin="0,10,0,0"
+						Source="pharmacy"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Pharmacies"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="pharmacies_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+						<StackLayout x:Name="_slRestaurants" Grid.Column="3" BackgroundColor="#7AB064"
+						VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5">
+						<Image 
+						Margin="0,10,0,0"
+						Source="restaurants"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Restaurants"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="restaurants_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+						<StackLayout x:Name="_slDeliever" Grid.Column="4" BackgroundColor="#7AB064"
+						VerticalOptions="FillAndExpand"
+							Padding="0,0,0,5">
+						<Image 
+						Margin="0,10,0,0" 
+						Source="deliver"
+					VerticalOptions="CenterAndExpand"/>
+				<Label Text="Deliever"
+					TextColor="White"
+					FontSize="8"
+					HorizontalOptions="FillAndExpand"
+					HorizontalTextAlignment="Center"/>
+							<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Tapped="deliever_Tapped" /> 
+				</StackLayout.GestureRecognizers>
+					</StackLayout>
+				</Grid>
+			</StackLayout>
+		</RelativeLayout>
+		</StackLayout>
+</ContentPage>
